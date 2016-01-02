@@ -115,7 +115,7 @@ class MailMover(Database):
         Update the database after mail files have been moved in the filesystem.
         '''
         try:
-            check_call(['notmuch', 'new'])
+            check_call(['notmuch', 'new', '--no-hooks'])
         except CalledProcessError as err:
             logging.error("Could not update notmuch database " \
                           "after syncing maildir '{}': {}".format(maildir, err))
